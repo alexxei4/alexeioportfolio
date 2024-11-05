@@ -1,60 +1,73 @@
-// src/components/ContactForm.js
 "use client";
 import { useState } from 'react';
-import Link from 'next/link';
 
 const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState({ success: false, error: null });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted with values:', { name, email, message }); // Log form data
-    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
+    try {
+      const response = await fetch('https://formspree.io/f/mwpkoprl', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      setSuccess(true);
-      setName('');
-      setEmail('');
-      setMessage('');
+      if (response.ok) {
+        setStatus({ success: true, error: null });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setStatus({ success: false, error: 'Failed to send message. Please try again.' });
     }
   };
 
-  console.log('ContactForm component rendered'); // This will log each time the component re-renders
-
   return (
     <div className="max-w-md mx-auto p-4">
-      {success && <p className="text-green-500">Message sent successfully!</p>}
+      {status.success && <p className="text-green-500 mb-4">Message sent successfully!</p>}
+      {status.error && <p className="text-red-500 mb-4">{status.error}</p>}
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <input
           type="text"
+          name="name"
           placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={formData.name}
+          onChange={handleChange}
           className="p-2 border border-gray-300 rounded"
           required
         />
         <input
           type="email"
+          name="email"
           placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formData.email}
+          onChange={handleChange}
           className="p-2 border border-gray-300 rounded"
           required
         />
         <textarea
+          name="message"
           placeholder="Your Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={formData.message}
+          onChange={handleChange}
           className="p-2 border border-gray-300 rounded"
           rows="4"
           required
