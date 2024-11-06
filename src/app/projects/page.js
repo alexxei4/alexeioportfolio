@@ -2,12 +2,14 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ProjectCard from '../../components/ProjectCard';
+import MeshGradientBackground from '../../components/MeshGradientBackground'; // Import the gradient
 
 import '../../styles/globals.css';
 
 const Projects = () => {
   return (
     <>
+    <MeshGradientBackground />
       <Head>
         <title>My Projects</title>
         <meta name="description" content="A showcase of my projects." />
