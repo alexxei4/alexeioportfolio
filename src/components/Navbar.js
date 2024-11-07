@@ -1,24 +1,66 @@
-import Link from 'next/link';
+"use client";
 
-const Navbar = () => {
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import MenuItem from './MenuItem';
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex justify-between">
-        <div className="text-lg font-bold">My Portfolio</div>
-        <div>
-          <Link href="/" className="mr-4 hover:text-gray-300 transition">
-            Home
-          </Link>
-          <Link href="/projects" className="mr-4 hover:text-gray-300 transition">
-            Projects
-          </Link>
-          <Link href="/contact" className="hover:text-gray-300 transition">
-            Contact
-          </Link>
+    <header>
+      {/* Menu Button */}
+      <button onClick={toggleMenu} className="menu-button">
+        <div className="hamburger-icon">
+          {/* The hamburger icon with 3 lines */}
+          <span
+            style={{
+              transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'rotate(0)',
+              transition: 'all 0.3s ease',
+              backgroundColor: isOpen ? 'white' : 'black',
+            }}
+            className="line line1"
+          ></span>
+          <span
+            style={{
+              opacity: isOpen ? 0 : 1,
+              transition: 'opacity 0.3s ease',
+              backgroundColor: isOpen ? 'white' : 'black',
+            }}
+            className="line line2"
+          ></span>
+          <span
+            style={{
+              transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'rotate(0)',
+              transition: 'all 0.3s ease',
+              backgroundColor: isOpen ? 'white' : 'black',
+            }}
+            className="line line3"
+          ></span>
         </div>
-      </div>
-    </nav>
-  );
-};
+      </button>
 
-export default Navbar;
+      {/* Side Menu */}
+      <motion.nav
+        initial={{ x: '-100%' }}
+        animate={{ x: isOpen ? 0 : '-100%' }}
+        transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
+        className="side-menu"
+        style={{ backgroundColor: 'black', color: 'white' }}
+      >
+        <ul>
+          {[{ label: 'About', href: '#about' }, { label: 'Work', href: '#work' }, { label: 'Projects', href: '#projects' }, { label: 'Contact', href: '#contact' }].map((item, index) => (
+            <MenuItem key={index} label={item.label} href={item.href} delay={index * 0.1} onClick={toggleMenu} />
+          ))}
+        </ul>
+      </motion.nav>
+
+      {/* Optional: add a background overlay */}
+      {isOpen && <div className="overlay" onClick={toggleMenu}></div>}
+    </header>
+  );
+}

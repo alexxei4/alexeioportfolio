@@ -1,94 +1,38 @@
-// src/app/page.js
-"use client";
+"use client"; // Mark this as client-side
 
 import { motion } from 'framer-motion';
-import ProjectCard from '../components/ProjectCard';
 import ContactForm from '../components/ContactForm';
-import MeshGradientBackground from '../components/MeshGradientBackground'; // Import the gradient
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden"> {/* Wrapper for z-indexing */}
-      {/* Gradient Background */}
-      <MeshGradientBackground /> {/* This will be the animated background for the entire page */}
+    <main className="relative overflow-x-hidden">
+      {/* Main container for all sections */}
+      <div className="flex flex-col items-center justify-start space-y-16">
 
-      {/* Content Sections */}
-      <section className="h-screen flex flex-col items-center justify-center text-center relative z-10">
-        <motion.div
-          className="glass-effect"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-5xl font-bold text-gray-800">About</h1>
+        {/* About Section */}
+        <section className="h-screen flex flex-col items-center justify-center text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            className="glass-effect"
+            initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <p className="text-xl mt-4 text-gray-600">Me</p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <section className="h-screen flex flex-col items-center justify-center text-center relative z-10">
-        <motion.div
-          className="glass-effect"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-5xl font-bold text-gray-800">Work</h1>
-          
-        </motion.div>
-      </section>
-
-      <section className="h-screen flex flex-col items-center justify-center text-center relative z-10">
-        <motion.div
-          className="glass-effect"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-5xl font-bold text-gray-800">Education</h1>
-          
-        </motion.div>
-      </section>
-
-      <section className="py-16 bg-white relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Projects</h2>
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <ProjectCard 
-              title="Project 1" 
-              description="Description of project 1" 
-              link="#" 
-            />
-            <ProjectCard 
-              title="Project 2" 
-              description="Description of project 2" 
-              link="#" 
-            />
-            <ProjectCard 
-              title="Project 3" 
-              description="Description of project 3" 
-              link="#" 
-            />
+            <h2>About Me</h2>
+            <p>- I am a programmer based out of Hamilton, Canada. I went to Mohawk College from 2018 to 2024 and obtained two diplomas during that time.</p>
+            <p>- I received a standard diploma in Software Support and an advanced diploma in Software Development.</p>
+            <p>- I specialize in Web Development, with primary strengths in Laravel, React, Vue, Angular, Next.js, and ASP.NET.</p>
+            <p>- Most of my Web Development experience came from my placement with Taindeen, a Polish company.</p>
+            <p>- I also have some experience with iOS and Android app development, and I am currently trying to learn DevOps to diversify my skill set.</p>
           </motion.div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-16 bg-gray-50 relative z-10">
-        <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Contact Me</h2>
-          <ContactForm />
-        </div>
-      </section>
+    
+
+        
+        
+      </div>
     </main>
   );
 }
+
+

@@ -8,8 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primaryBlue: '#1e3a8a',   // Rich Blue
+        primaryGreen: '#10b981',  // Rich Green
+        primaryPurple: '#7c3aed', // Rich Purple
+        neutralGray: {
+          light: '#d1d5db',       // Light Gray for content
+          DEFAULT: '#9ca3af',     // Medium Gray
+          dark: '#4b5563',        // Dark Gray for backgrounds
+        },
+        background: '#1f2937',    // Very Dark Gray/Black
+        accentWhite: '#f9fafb',   // Off-White for text on dark backgrounds
       },
       fontWeight: {
         normal: '400',

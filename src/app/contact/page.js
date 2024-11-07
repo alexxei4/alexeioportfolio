@@ -13,7 +13,7 @@ const Contact = () => {
         <meta name="description" content="Contact form for inquiries." />
       </Head>
       <section className="py-16 bg-gray-50">
-        <h2 className="text-4xl font-bold text-center">Contact Me</h2>
+        <h1>Contact Me</h1>
         <ContactForm />
       </section>
     </>

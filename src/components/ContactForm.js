@@ -1,5 +1,7 @@
-"use client";
+"use client"; // Mark this as client-side
+
 import { useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion for animations
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -41,10 +43,21 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
+    <motion.div 
+      className="max-w-md mx-auto p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    ><h2 className="text-4xl font-bold text-black mb-6 align:centre">Contact Me</h2>
       {status.success && <p className="text-green-500 mb-4">Message sent successfully!</p>}
       {status.error && <p className="text-red-500 mb-4">{status.error}</p>}
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+      <motion.form
+        onSubmit={handleSubmit}
+        className="flex flex-col space-y-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <input
           type="text"
           name="name"
@@ -78,8 +91,8 @@ const ContactForm = () => {
         >
           Send Message
         </button>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };
 
