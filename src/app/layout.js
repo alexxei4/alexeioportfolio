@@ -7,6 +7,8 @@ import MeshGradientBackground from '@/components/MeshGradientBackground';
 import WorkSection from '@/components/WorkSection'; // Import gradient component
 import '../styles/globals.css';
 import ContactForm from '@/components/ContactForm';
+import Projects from '@/components/Projects';
+import Skills from '@/components/Skills';
 
 export default function Layout({ children }) {
   return (
@@ -31,13 +33,14 @@ export default function Layout({ children }) {
             {children}
             {/* Move WorkSection after the About Me and before the Footer */}
             <WorkSection />
+            <Projects />
+            <Skills />
             <ContactForm/>
           </div>
 
         </main>
 
-        {/* Footer */}
-        <Footer />
+      
       </body>
     </html>
   );

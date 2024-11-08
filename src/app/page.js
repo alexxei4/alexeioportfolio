@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion';
 import ContactForm from '../components/ContactForm';
+import skills from '../components/Skills';
+import Skills from '../components/Skills';
+
 
 export default function Home() {
   return (
@@ -24,15 +27,13 @@ export default function Home() {
             <p>- Most of my Web Development experience came from my placement with Taindeen, a Polish company.</p>
             <p>- I also have some experience with iOS and Android app development, and I am currently trying to learn DevOps to diversify my skill set.</p>
           </motion.div>
+
+          
         </section>
 
-    
+       
 
-        
-        
       </div>
     </main>
   );
 }
-
-

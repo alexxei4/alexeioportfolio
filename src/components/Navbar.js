@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import MenuItem from './MenuItem';
 
 export default function Navbar() {
@@ -16,48 +16,37 @@ export default function Navbar() {
       {/* Menu Button */}
       <button onClick={toggleMenu} className="menu-button">
         <div className="hamburger-icon">
-          {/* The hamburger icon with 3 lines */}
           <span
-            style={{
-              transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'rotate(0)',
-              transition: 'all 0.3s ease',
-              backgroundColor: isOpen ? 'white' : 'black',
-            }}
-            className="line line1"
+            className={`line line1 ${isOpen ? 'line1-active' : ''}`}
           ></span>
           <span
-            style={{
-              opacity: isOpen ? 0 : 1,
-              transition: 'opacity 0.3s ease',
-              backgroundColor: isOpen ? 'white' : 'black',
-            }}
-            className="line line2"
+            className={`line line2 ${isOpen ? 'line2-active' : ''}`}
           ></span>
           <span
-            style={{
-              transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'rotate(0)',
-              transition: 'all 0.3s ease',
-              backgroundColor: isOpen ? 'white' : 'black',
-            }}
-            className="line line3"
+            className={`line line3 ${isOpen ? 'line3-active' : ''}`}
           ></span>
         </div>
       </button>
 
-      {/* Side Menu */}
-      <motion.nav
-        initial={{ x: '-100%' }}
-        animate={{ x: isOpen ? 0 : '-100%' }}
-        transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
-        className="side-menu"
-        style={{ backgroundColor: 'black', color: 'white' }}
-      >
-        <ul>
-          {[{ label: 'About', href: '#about' }, { label: 'Work', href: '#work' }, { label: 'Projects', href: '#projects' }, { label: 'Contact', href: '#contact' }].map((item, index) => (
-            <MenuItem key={index} label={item.label} href={item.href} delay={index * 0.1} onClick={toggleMenu} />
-          ))}
-        </ul>
-      </motion.nav>
+      {/* Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            initial={{ y: '-100%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: '-100%', opacity: 0 }}
+            transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
+            className="dropdown-menu"
+            style={{  color: 'white', position: 'absolute', top: '95px' , left:'20px', width: '100%' }}
+          >
+            <ul className="text-outline">
+              {[{ label: 'About', href: '#about' }, { label: 'Work', href: '#work' }, { label: 'Projects', href: '#projects' }, { label: 'Contact', href: '#contact' }].map((item, index) => (
+                <MenuItem key={index} label={item.label} href={item.href} delay={index * 0.1} onClick={toggleMenu} />
+              ))}
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
 
       {/* Optional: add a background overlay */}
       {isOpen && <div className="overlay" onClick={toggleMenu}></div>}

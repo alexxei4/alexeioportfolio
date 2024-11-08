@@ -17,6 +17,39 @@ function MeshGradientBackground({ children }) {
 
   return (
     <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      <style jsx global>{`
+        @font-face {
+          font-family: 'PP Mori';
+          src: url('/fonts/PPMori-Regular.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'PP Mori';
+          src: url('/fonts/PPMori-RegularItalic.otf') format('opentype');
+          font-weight: normal;
+          font-style: italic;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'PP Mori';
+          src: url('/fonts/PPMori-SemiBold.otf') format('opentype');
+          font-weight: 600;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'PP Mori';
+          src: url('/fonts/PPMori-Extralight.otf') format('opentype');
+          font-weight: 200;
+          font-style: normal;
+          font-display: swap;
+        }
+      `}</style>
       {/* Gradient Canvas */}
       <canvas
         id="gradient-canvas"
@@ -35,61 +68,95 @@ function MeshGradientBackground({ children }) {
       
       {/* Welcome Text Animation */}
       {isLoaded && (
-  <motion.div
-    className="welcome-text"
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    style={{
-      position: "absolute",  // Positioned in the center
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      textAlign: "center",
-      zIndex: 1,  // Ensure the welcome text is above the gradient
-    }}
-  >
-    <h2 style={{ display: 'inline-block', fontFamily: 'Helvetica Neue, sans-serif' ,textShadow: '2px 2px 5px red' }}>
-      Hello :) , My name is
-      <span style={{ fontFamily: 'Editorial New, serif', fontWeight: 'bold' }}>
-        &nbsp; Alexei Ougriniouk
-      </span>
-    </h2>
-    <h1
-      style={{
-        display: 'block',  // Change to block so it moves to a new line
-        textAlign: 'left',
-        fontFamily: 'Helvetica Neue, sans-serif',
-        padding: '10px',
-        
-        textShadow: '2px 2px 5px red'  // Red fuzzy outline effect
-      }}
-    >
-      Welcome to my portfolio
-    </h1>
-    <h3
-      style={{
-        fontFamily: 'Helvetica Neue, sans-serif',
-        textAlign: 'right',
-        padding: '10px',
-        textShadow: '2px 2px 5px red'  // Red fuzzy outline effect
-      }}
-    >
-      I am a Junior Software Developer that is <br></br>eager to put my programming skills<br></br> to use in the workplace
-    </h3>
-  </motion.div>
-)}
+        <motion.div
+          className="welcome-text"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "5%",  // Position text on the left side
+            transform: "translateY(-50%)",
+            textAlign: "left",  // Align text to the left
+            zIndex: 1,
+            width: "100%",
+            maxWidth: "800px",
+            padding: "0 20px",
+          }}
+        >
+          <motion.h2
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              fontFamily: "PP Mori, sans-serif",
+              fontWeight: "200",
+              fontSize: "2rem",
+              color: "white",  // Set text color to white
+              textShadow: "2px 2px 4px black",  // Black outline
+              marginBottom: "1rem",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.2",
+            }}
+          >
+            Hello :) , My name is{" "}
+            <span
+              style={{
+                fontFamily: "ABCAsfalt-CompressedLight-Trial, sans-serif",
+                fontWeight: "600",
+                fontStyle: "italic",
+                color: "white",
+                textShadow: "2px 2px 4px black",
+              }}
+            >
+              Alexei Ougriniouk
+            </span>
+          </motion.h2>
 
-      
+          <h1
+            style={{
+              display: "block",
+              textAlign: "left",
+              fontFamily: "Helvetica Neue, sans-serif",
+              padding: "10px",
+              color: "white",  // Set text color to white
+              textShadow: "2px 2px 4px black",  // Black outline
+              fontSize: "3rem",
+            }}
+          >
+            Welcome to my portfolio
+          </h1>
+
+          <h3
+            style={{
+              fontFamily: "PPMori-ExtralightItalic, sans-serif",
+              fontWeight: "200",
+              fontStyle: "normal",
+              fontdisplay: "swap",
+              textAlign: "left",
+              padding: "10px",
+              color: "white",  // Set text color to white
+              textShadow: "2px 2px 4px black",  // Black outline
+              fontSize: "1.5rem",
+              maxWidth: "600px",
+            }}
+          >
+            I am a Junior Software Developer that is <br /> eager to put my programming skills
+            <br /> to use in the workplace
+          </h3>
+        </motion.div>
+      )}
+
       {/* Main Content */}
       <div
         style={{
-          position: "relative",  // Ensures content is above the canvas and other animations
-          zIndex: 1,  // Content should appear above the gradient
-          paddingTop: "60px",  // Padding to avoid overlap with the welcome text
+          position: "relative",
+          zIndex: 1,
+          paddingTop: "60px",
         }}
       >
-        {children}  {/* The sections passed as children will appear here */}
+        {children}
       </div>
     </div>
   );
