@@ -1,26 +1,50 @@
 import { motion } from 'framer-motion';
+import '../fonts/ABCConnect-Nail-Trial.woff';
+import { gsap } from 'gsap';
+
 
 const SkillCard = ({ title, skillLevel }) => {
-  const numDots = 5;
-  const filledDots = Math.floor(skillLevel * numDots);
+  const numDots = 5; // Total dots per skill
+  const filledDots = Math.floor(skillLevel * numDots); // Dots filled based on skill level
 
   return (
     <motion.div
-      className="bg-gray-900 text-white rounded-lg shadow-lg p-6 w-48 h-48 flex flex-col items-center justify-center"
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: 'tween', duration: 0.3 }}
+      className="flex flex-col items-center mb-4"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
-      <div className="flex space-x-2">
+      
+      <style jsx global>{`
+      @font-face {
+        font-family: 'ABCConnect';
+        src: url('/fonts/ABCConnect-Nail-Trial.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+    `}</style>
+
+      
+      {/* Skill Title */}
+      <h3
+        className="text-center mb-2"
+        style={{
+          color: '#07d3ba',
+          fontFamily: 'ABCConnect',
+          fontSize: '1.2rem',
+        }}
+      >
+        {title}
+      </h3>
+
+      {/* Dots for Skill Level */}
+      <div className="flex space-x-1">
         {[...Array(numDots)].map((_, index) => (
-          <motion.div
+          <div
             key={index}
             className={`w-3 h-3 rounded-full ${
-              index < filledDots ? 'bg-green-500' : 'bg-gray-500'
+              index < filledDots ? 'bg-[#07d3ba]' : 'bg-gray-500'
             }`}
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'tween', duration: 0.3, delay: index * 0.1 }}
           />
         ))}
       </div>
@@ -30,11 +54,26 @@ const SkillCard = ({ title, skillLevel }) => {
 
 const Skills = () => {
   return (
-    <section className="py-16">
-      <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-center">
+    <section  id="skills" 
+      className="py-16"
+      style={{
+        backgroundColor: 'black', // Adjust this color to match your last two sections
+      }}
+    >
+      <h2
+        className="text-center mb-8"
+        style={{
+          color: '#07d3ba',
+          fontFamily: 'ABCConnect',
+          fontSize: '2rem',
+        }}
+      >
+        My Skills
+      </h2>
+
+      <div className="flex flex-wrap justify-center gap-6">
         <SkillCard title="Laravel" skillLevel={0.8} />
-        <SkillCard title="Next.Js" skillLevel={0.7} />
+        <SkillCard title="Next.js" skillLevel={0.7} />
         <SkillCard title="Vue" skillLevel={0.7} />
         <SkillCard title="ASP.Net" skillLevel={0.7} />
         <SkillCard title="React" skillLevel={0.7} />

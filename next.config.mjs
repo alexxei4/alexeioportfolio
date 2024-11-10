@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import withFonts from 'next-fonts';
 
-export default nextConfig;
+export default withFonts({
+  reactStrictMode: true,
+  webpack(config) {
+    // You can customize the Webpack config if needed
+    return config;
+  },
+});

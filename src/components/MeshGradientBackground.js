@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Gradient } from "./Gradient";
 import { motion } from "framer-motion";
+import { gsap } from 'gsap';
+
+
 
 
 function MeshGradientBackground({ children }) {
@@ -61,8 +64,7 @@ function MeshGradientBackground({ children }) {
           height: "100%",
           zIndex: -1,  // Ensure the gradient stays in the background
           "--gradient-color-1": "#000000",  // You can change these colors
-          "--gradient-color-2": "#ff0000",  // to customize the gradient
-          "--gradient-color-3": "#ffffff",
+          "--gradient-color-2": "#07d3ba",  // to customize the gradient          "--gradient-color-3": "#032d34",
         }}
       />
       

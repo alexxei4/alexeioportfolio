@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MenuItem from './MenuItem';
@@ -37,11 +35,23 @@ export default function Navbar() {
             exit={{ y: '-100%', opacity: 0 }}
             transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
             className="dropdown-menu"
-            style={{  color: 'white', position: 'absolute', top: '95px' , left:'20px', width: '100%' }}
+            style={{
+              color: 'white',
+              position: 'absolute',
+              top: '95px',
+              left: '20px',
+              width: '100%',
+            }}
           >
             <ul className="text-outline">
-              {[{ label: 'About', href: '#about' }, { label: 'Work', href: '#work' }, { label: 'Projects', href: '#projects' }, { label: 'Contact', href: '#contact' }].map((item, index) => (
-                <MenuItem key={index} label={item.label} href={item.href} delay={index * 0.1} onClick={toggleMenu} />
+              {[{ label: 'About', href: '#about' }, { label: 'Work', href: '#work' }, { label: 'Projects', href: '#projects' }, { label: 'Skills', href: '#skills' }, { label: 'Contact', href: '#contact' }].map((item, index) => (
+                <MenuItem
+                  key={index}
+                  label={item.label}
+                  href={item.href}
+                  delay={index * 0.1}
+                  onClick={toggleMenu} // Close menu on click
+                />
               ))}
             </ul>
           </motion.nav>

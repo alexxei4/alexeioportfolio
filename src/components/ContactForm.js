@@ -1,7 +1,10 @@
-"use client"; // Mark this as client-side
-
+import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
+import MeshGradientBackground from '../components/MeshGradientBackground'; // Import the gradient
+import { gsap } from 'gsap';
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -43,57 +46,75 @@ const ContactForm = () => {
   };
 
   return (
-    <motion.div 
-      className="max-w-md mx-auto p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    ><h2 className="text-4xl font-bold text-black mb-6 align:centre">Contact Me</h2>
-      {status.success && <p className="text-green-500 mb-4">Message sent successfully!</p>}
-      {status.error && <p className="text-red-500 mb-4">{status.error}</p>}
-      <motion.form
-        onSubmit={handleSubmit}
-        className="flex flex-col space-y-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="p-2 border border-gray-300 rounded"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="p-2 border border-gray-300 rounded"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="p-2 border border-gray-300 rounded"
-          rows="4"
-          required
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
-        >
-          Send Message
-        </button>
-      </motion.form>
-    </motion.div>
+    
+    <div className="min-h-screen bg-black flex justify-center items-center px-4">
+
+      
+      
+
+    
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-12 max-w-6xl">
+        <section id="contact" >
+          {/* Left Column - Contact Info */}
+          <div className="space-y-4">
+            <p className="text-gray-400">Contact Me</p>
+            <p className="text-gray-400">Email: alexougriniouk@gmail.com</p>
+            <p className="text-gray-400">LinkedIn: <a href="https://www.linkedin.com/in/alexei-ougriniouk/">alexei-ougriniouk</a></p>
+            <p className="text-gray-400">Github: <a href = "https://github.com/alexxei4" >github.com/alexxei4</a></p>
+            <p className="text-gray-400 max-w-md">
+              Feel free to reach out regarding any inquires
+            </p>
+            <br></br>
+            <a href="/myresume.pdf" download>
+              <button className="bg-black border border-white-800 text-white px-8 py-2 hover:bg-white-900 transition-colors">
+                Download Resume
+              </button>
+            </a>
+          </div>
+        </section>
+
+        {/* Right Column - Form */}
+        <div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="bg-black border border-white-800  text-white p-3 w-full focus:outline-none focus:border-white-600"
+            />
+            
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="bg-black border border-white-800 text-white  p-3 w-full focus:outline-none focus:border-white-600"
+            />
+            
+            <textarea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="6"
+              className="bg-black border border-white-800 p-3 w-full text-white  focus:outline-none focus:border-white-600"
+            />
+            
+            <button
+              type="submit"
+              className="bg-black border border-white-800 text-white px-8 py-2 hover:bg-white-900 transition-colors"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
+
 
 export default ContactForm;

@@ -9,6 +9,8 @@ import '../styles/globals.css';
 import ContactForm from '@/components/ContactForm';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
+import { gsap } from 'gsap';
+
 
 export default function Layout({ children }) {
   return (
@@ -22,7 +24,7 @@ export default function Layout({ children }) {
 
       <body>
         {/* Navbar and gradient background */}
-        <Navbar />
+        
         <MeshGradientBackground />
 
         {/* Main content */}

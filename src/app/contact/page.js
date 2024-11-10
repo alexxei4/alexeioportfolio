@@ -1,24 +1,22 @@
-// src/app/contact/page.js
 import Head from 'next/head';
-import Link from 'next/link';
-import ContactForm from '../../components/ContactForm';
-import MeshGradientBackground from '../../components/MeshGradientBackground'; // Import the gradient
+import ContactForm from '@/components/ContactForm';
+import { gsap } from 'gsap';
+
 
 const Contact = () => {
   return (
     <>
-    <MeshGradientBackground />
       <Head>
         <title>Contact Me</title>
         <meta name="description" content="Contact form for inquiries." />
       </Head>
-      <section className="py-16 bg-gray-50">
-        <h1>Contact Me</h1>
-        <ContactForm />
-      </section>
+      <div className="min-h-screen bg-black flex justify-center items-center px-4">
+        <div className="w-full max-w-6xl">
+          <ContactForm />
+        </div>
+      </div>
     </>
   );
 };
-//console.log(ProjectCard, Navbar, Footer, ContactForm);
 
 export default Contact;

@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from 'next/image';
+import { gsap } from 'gsap';
+
 
 const WorkSection = () => {
   const [isZoomed, setIsZoomed] = useState(false);
@@ -16,6 +18,7 @@ const WorkSection = () => {
     setIsZoomed(false);
     setClickedItem(null);
   };
+
 
   const workItems = [
     {
@@ -88,7 +91,7 @@ const WorkSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-black w-full flex justify-center items-center relative overflow-hidden">
+    <section id="work" className="py-16 bg-black w-full flex justify-center items-center relative overflow-hidden">
       {/* Add gradient background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
