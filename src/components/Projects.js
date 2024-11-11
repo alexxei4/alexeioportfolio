@@ -76,6 +76,13 @@ const Projects = () => {
       youtubeUrl: 'https://www.youtube.com/embed/iXGswZJ1aqU?si=kVGPTKUEmM0jLJb-'
       
     },
+    {
+      title: 'Wellbeing Webinar Application',
+      description: 'Made an application for a wellness company  in React.jS , Firebase and GCP.  ',   
+      imageUrl: '/images/wellbeing.jpg',   
+      youtubeUrl: 'https://wellbis.pl/pko'
+    }
+    
     // Add other projects here
   ];
 

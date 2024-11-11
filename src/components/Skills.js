@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import '../fonts/ABCConnect-Nail-Trial.woff';
 import { gsap } from 'gsap';
+import '../styles/globals.css';
 
 
 const SkillCard = ({ title, skillLevel }) => {
@@ -15,23 +15,17 @@ const SkillCard = ({ title, skillLevel }) => {
       transition={{ duration: 0.5 }}
     >
       
-      <style jsx global>{`
-      @font-face {
-        font-family: 'ABCConnect';
-        src: url('/fonts/ABCConnect-Nail-Trial.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-      }
-    `}</style>
+  
 
       
       {/* Skill Title */}
       <h3
         className="text-center mb-2"
         style={{
-          color: '#07d3ba',
-          fontFamily: 'ABCConnect',
-          fontSize: '1.2rem',
+          color: '#FFFCE1',
+          fontFamily: 'Helvetica Neue, sans-serif',
+          fontWeight: 300,
+          fontSize: '2rem',
         }}
       >
         {title}
@@ -63,8 +57,9 @@ const Skills = () => {
       <h2
         className="text-center mb-8"
         style={{
-          color: '#07d3ba',
-          fontFamily: 'ABCConnect',
+          color: '#FFFCE1',
+          fontFamily: 'Helvetica Neue, sans-serif',
+          fontWeight: 300,
           fontSize: '2rem',
         }}
       >
