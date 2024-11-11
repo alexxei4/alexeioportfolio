@@ -144,7 +144,7 @@ function MeshGradientBackground({ children }) {
               maxWidth: "600px",
             }}
           >
-            I am a Junior Software Developer that is <br /> eager to put my programming skills
+            I am a  Software Developer that is <br /> eager to put my programming skills
             <br /> to use in the workplace
           </h3>
         </motion.div>
