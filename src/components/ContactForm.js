@@ -1,3 +1,4 @@
+"use client";
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -65,7 +66,7 @@ const ContactForm = () => {
               Feel free to reach out regarding any inquires
             </p>
             <br></br>
-            <a href="/myresume.pdf" download>
+            <a href="/alexeiougrinioukresume.pdf" download>
               <button className="bg-black border border-white-800 text-white px-8 py-2 hover:bg-white-900 transition-colors">
                 Download Resume
               </button>
