@@ -100,7 +100,7 @@ const WorkSection = () => {
       </div>
 
       <div className="w-full sm:w-3/4 md:w-2/3 relative z-10">
-        <h2 className="text-4xl font-bold text-white mb-8 text-center">Work Experience</h2>
+        <h2 className="text-4xl font-bold text-#FFFCE1 mb-8 text-center">Work Experience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {workItems.map((item, index) => (
             <motion.div
@@ -130,22 +130,22 @@ const WorkSection = () => {
                     />
                   </div>
                 ) : (
-                  <div className="w-20 h-20 rounded-full bg-gray-600 flex items-center justify-center text-white text-2xl font-bold border-2 border-white border-opacity-20">
+                  <div className="w-20 h-20 rounded-full bg-gray-600 flex items-center justify-center text-#FFFCE1 text-2xl font-bold border-2 border-white border-opacity-20">
                     {item.company[0]}
                   </div>
                 )}
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-xl font-semibold text-[#FFFCE1] group-hover:text-cyan-400 transition-colors">
                   {item.title}
                 </h3>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-[#FFFCE1] text-gray-400">
                   {item.company}, {item.location} | <span className="text-gray-500">{item.date}</span>
                 </span>
                 <div className="text-sm text-gray-300 mt-2">
                   {item.description.map((desc) => (
                     <div key={desc.category} className="mb-2">
-                      <span className="font-semibold text-white">{desc.category}:</span>
+                      <span className="font-semibold text-[#FFFCE1]">{desc.category}:</span>
                       <ul className="ml-4 list-disc list-inside text-gray-400">
                         {desc.details.map((detail, i) => (
                           <li key={i}>{detail}</li>
@@ -160,29 +160,61 @@ const WorkSection = () => {
         </div>
 
         {/* Modal with glassmorphism effect */}
-        {isZoomed && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-70 z-20 flex items-center justify-center backdrop-blur-sm"
-            onClick={handleClose}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.div
-              className="p-8 rounded-xl max-w-3xl w-full relative"
-              style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-              }}
-              animate={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal content remains the same */}
-            </motion.div>
-          </motion.div>
-        )}
+        {isZoomed && clickedItem !== null && (
+  <motion.div
+    className="fixed inset-0 bg-black bg-opacity-70 z-20 flex items-center justify-center backdrop-blur-sm"
+    onClick={handleClose}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+  >
+    <motion.div
+      className="p-8 rounded-xl max-w-3xl w-full relative"
+      style={{
+        background: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(16px)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+      }}
+      animate={{ scale: 1.1 }}
+      transition={{ duration: 0.3 }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Render clicked work item's details */}
+      <div className="text-center">
+      <h3
+        className="text-2xl font-bold text-#FFFCE1 mb-4"
+        style={{
+          fontFamily: '"Helvetica Neue Light", Helvetica, Arial, sans-serif',
+          fontWeight: 300, // Optional for lighter weight
+        }}
+      >{workItems[clickedItem].title}</h3>
+        <p className="text-gray-400 mb-4">
+          {workItems[clickedItem].company} - {workItems[clickedItem].location}
+        </p>
+        <p className="text-gray-400 mb-6">{workItems[clickedItem].date}</p>
+      </div>
+      <div>
+        {workItems[clickedItem].description.map((desc, i) => (
+          <div key={i} className="mb-4">
+            <h4 className="text-lg font-semibold text-[#FFFCE1] mb-2">{desc.category}</h4>
+            <ul className="list-disc list-inside text-gray-400">
+              {desc.details.map((detail, j) => (
+                <li key={j}>{detail}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <button
+        onClick={handleClose}
+        className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 rounded-full p-2"
+      >
+        ✕
+      </button>
+    </motion.div>
+  </motion.div>
+)}
+
       </div>
     </section>
   );

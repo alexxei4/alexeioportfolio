@@ -95,7 +95,7 @@ function MeshGradientBackground({ children }) {
               fontFamily: "PP Mori, sans-serif",
               fontWeight: "200",
               fontSize: "2rem",
-              color: "white",  // Set text color to white
+              color: "#FFFCE1",  // Set text color to white
               textShadow: "2px 2px 4px black",  // Black outline
               marginBottom: "1rem",
               letterSpacing: "-0.02em",
@@ -108,7 +108,7 @@ function MeshGradientBackground({ children }) {
                 fontFamily: "ABCAsfalt-CompressedLight-Trial, sans-serif",
                 fontWeight: "600",
                 fontStyle: "italic",
-                color: "white",
+                color: "#FFFCE1",
                 textShadow: "2px 2px 4px black",
               }}
             >
@@ -122,7 +122,7 @@ function MeshGradientBackground({ children }) {
               textAlign: "left",
               fontFamily: "Helvetica Neue, sans-serif",
               padding: "10px",
-              color: "white",  // Set text color to white
+              color: "#FFFCE1",  // Set text color to white
               textShadow: "2px 2px 4px black",  // Black outline
               fontSize: "3rem",
             }}
@@ -138,7 +138,7 @@ function MeshGradientBackground({ children }) {
               fontdisplay: "swap",
               textAlign: "left",
               padding: "10px",
-              color: "white",  // Set text color to white
+              color: "#FFFCE1",  // Set text color to white
               textShadow: "2px 2px 4px black",  // Black outline
               fontSize: "1.5rem",
               maxWidth: "600px",

@@ -31,11 +31,11 @@ export default function Home() {
               border: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
-            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-            <p className="text-gray-300 mb-2">I am a passionate programmer based in Hamilton, Canada, with a comprehensive background in software development. </p>
-            <p className="text-gray-300 mb-2"> I graduated from Mohawk College in 2024 with both a standard diploma in Software Support and an advanced diploma in Software Development. </p>
-            <p className="text-gray-300 mb-2">My expertise lies in web development, where I excel in frameworks and languages such as Laravel, React, Vue, Angular, Next.js, and ASP.NET.</p>
-             <p className="text-gray-300 mb-2" > Much of my practical experience was gained through my placement with Taindeen, a company in Poland, where I honed my skills in real-world projects. Additionally, I have experience with iOS and Android app development and am currently expanding my knowledge in DevOps to further diversify my skill set.</p>
+            <h2 className="text-4xl font-bold text-#FFFCE1 mb-4 font-asfalt">About Me</h2>
+            <p className="text-300 text-[#FFFCE1] mb-2">I am a passionate programmer based in Hamilton, Canada, with a comprehensive background in software development. </p>
+            <p className="text-300 text-[#FFFCE1] mb-2"> I graduated from Mohawk College in 2024 with both a standard diploma in Software Support and an advanced diploma in Software Development. </p>
+            <p className="text-300 text-[#FFFCE1] mb-2">My expertise lies in web development, where I excel in frameworks and languages such as Laravel, React, Vue, Angular, Next.js, and ASP.NET.</p>
+            <p className="text-300 text-[#FFFCE1] mb-2">Much of my practical experience was gained through my placement with Taindeen, a company in Poland, where I honed my skills in real-world projects. Additionally, I have experience with iOS and Android app development and am currently expanding my knowledge in DevOps to further diversify my skill set.</p>
           </motion.div>
 
           {/* Image of You */}

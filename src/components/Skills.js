@@ -20,10 +20,9 @@ const SkillCard = ({ title, skillLevel }) => {
       
       {/* Skill Title */}
       <h3
-        className="text-center mb-2"
+        className="text-center mb-2 font-connect"
         style={{
           color: '#FFFCE1',
-          fontFamily: 'Helvetica Neue, sans-serif',
           fontWeight: 300,
           fontSize: '2rem',
         }}
@@ -55,10 +54,9 @@ const Skills = () => {
       }}
     >
       <h2
-        className="text-center mb-8"
+        className="text-center mb-8 "
         style={{
           color: '#FFFCE1',
-          fontFamily: 'Helvetica Neue, sans-serif',
           fontWeight: 300,
           fontSize: '2rem',
         }}
@@ -67,17 +65,18 @@ const Skills = () => {
       </h2>
 
       <div className="flex flex-wrap justify-center gap-6">
-        <SkillCard title="Laravel" skillLevel={0.8} />
-        <SkillCard title="Next.js" skillLevel={0.7} />
-        <SkillCard title="Vue" skillLevel={0.7} />
-        <SkillCard title="ASP.Net" skillLevel={0.7} />
-        <SkillCard title="React" skillLevel={0.7} />
-        <SkillCard title="Angular" skillLevel={0.6} />
-        <SkillCard title="Python" skillLevel={0.6} />
-        <SkillCard title="Kotlin" skillLevel={0.5} />
-        <SkillCard title="Swift" skillLevel={0.5} />
-        <SkillCard title="DevOps" skillLevel={0.2} />
-        <SkillCard title="AWS Fundamentals" skillLevel={0.2} />
+          <SkillCard title="Laravel" skillLevel={0.8} />
+          <SkillCard title="Next.js" skillLevel={0.7} />
+          <SkillCard title="Vue" skillLevel={0.7} />
+          <SkillCard title="ASP.Net" skillLevel={0.7} />
+          <SkillCard title="React" skillLevel={0.7} />
+          <SkillCard title="Angular" skillLevel={0.6} />
+          <SkillCard title="Python" skillLevel={0.6} />
+          <SkillCard title="Kotlin" skillLevel={0.5} />
+          <SkillCard title="Swift" skillLevel={0.5} />
+          <SkillCard title="DevOps" skillLevel={0.2} />
+          <SkillCard title="AWS Fundamentals" skillLevel={0.2} />
+         
       </div>
     </section>
   );

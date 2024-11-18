@@ -26,7 +26,7 @@ const ProjectCard = ({ title, description, imageUrl, onClick }) => (
       </div>
     </div>
     <div className="flex-1">
-      <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
+      <h3 className="text-xl font-semibold text-#FFFCE1 group-hover:text-cyan-400 transition-colors">
         {title}
       </h3>
       <p className="text-sm text-gray-400 mt-2">{description}</p>
@@ -96,7 +96,7 @@ const Projects = () => {
       </div>
 
       <div className="w-full sm:w-3/4 md:w-2/3 relative z-10">
-        <h2 className="text-4xl font-bold text-white mb-8 text-center">My Projects</h2>
+        <h2 className="text-4xl font-bold text-#FFFCE1 mb-8 text-center">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ProjectCard

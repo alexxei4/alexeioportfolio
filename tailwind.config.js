@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        ppMori: ['PP Mori', 'sans-serif'],
+        helvetica: ['Helvetica Neue', 'sans-serif'],
+        geist: ['Geist', 'sans-serif'],
+        connect: ['ABC Connect', 'sans-serif'],
+        asfaltcondensed : ['ABC Asfalt Condensed', 'sans-serif'],
+        asfaltcompressed : ['ABC Asfalt Compressed', 'sans-serif'],
+      },
       colors: {
         primaryBlue: '#1e3a8a',   // Rich Blue
         primaryGreen: '#10b981',  // Rich Green

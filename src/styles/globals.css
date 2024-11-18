@@ -3,6 +3,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Thin.ttf') format('ttf');
+  font-weight: 400; /* Adjust as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Mori';
+  src: url('/fonts/pp-mori.woff2') format('woff2');
+  font-weight: 400; /* Adjust as needed */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueLight.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistMonoVF.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABC Connect';
+  src: url('http://localhost:3000/fonts/ABCConnect-HexItalic-Trial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABC Asfalt Compressed';
+  src: url('/fonts/ABCAsfalt-CompressedLight-Trial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABC Asfalt Condensed';
+  src: url('/fonts/ABCAsfalt-CondensedRegular-Trial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* --- Base Styles --- */
 @layer base {
   /* Font smoothing */
@@ -25,14 +73,14 @@
     font-family: 'Editorial New', serif;
     font-style: italic;
     font-size: large;
-    color: #fffce1;
+    color: #FFFCE1 ;
     
   }
   h2 {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'ABC Asfalt Condensed', sans-serif;
     
     font-size: large;
-    color: #fffce1;
+    color: #FFFCE1;
 
 
   }
@@ -41,7 +89,7 @@
     font-weight: lighter;
     font-style: italic;
     font-size: large;
-    color: #fffce1;
+    color: #FFFCE1;
 
 
   }

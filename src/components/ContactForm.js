@@ -58,6 +58,8 @@ const ContactForm = () => {
         <section id="contact" >
           {/* Left Column - Contact Info */}
           <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-#FFFCE1 mb-6">Contact Me</h3>
+          
             <p className="text-gray-400">Contact Me</p>
             <p className="text-gray-400">Email: alexougriniouk@gmail.com</p>
             <p className="text-gray-400">LinkedIn: <a href="https://www.linkedin.com/in/alexei-ougriniouk/">alexei-ougriniouk</a></p>
@@ -77,6 +79,7 @@ const ContactForm = () => {
         {/* Right Column - Form */}
         <div>
           <form onSubmit={handleSubmit} className="space-y-6">
+          <h3 className="text-lg text-gray-300 mb-4">Do you like the contact form? :)</h3>
             <input
               type="text"
               name="name"
