@@ -86,7 +86,7 @@ const Projects = () => {
       title: 'Project Management Application',
       description: 'Project Management CRUD Application made with Vue, Laravel and Postgres in my Linux Ubuntu VM , other technologies involved were docker and nginx',   
       imageUrl: '',   
-      youtubeUrl: 'https://wellbis.pl/pko'
+      youtubeUrl: 'https://youtu.be/T4qe2pB1QHw'
     }
     
     // Add other projects here
