@@ -85,16 +85,16 @@ const Projects = () => {
     {
       title: 'Project Management Application',
       description: 'Project Management CRUD Application made with Vue, Laravel and Postgres in my Linux Ubuntu VM , other technologies involved were docker and nginx',   
-      imageUrl: '',   
+      imageUrl: '/images/pen.webp',   
       youtubeUrl: 'https://youtu.be/T4qe2pB1QHw'
     }
     
-    // Add other projects here
+
   ];
 
   return (
     <section  id="projects" className="py-16 bg-black w-full flex justify-center items-center relative overflow-hidden">
-      {/* Background gradient blobs */}
+      {}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
